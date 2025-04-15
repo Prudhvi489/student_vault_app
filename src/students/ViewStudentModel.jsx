@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Button, Table } from 'react-bootstrap';
+import { examNames } from '../utils/constants';
 
 const ViewStudentModal = ({ show, onHide, student }) => {
   return (
@@ -24,11 +25,11 @@ const ViewStudentModal = ({ show, onHide, student }) => {
                 </tr>
               </thead>
               <tbody>
-                {student.scores && student.scores.length > 0 ? (
-                  student.scores.map((score, idx) => (
+                {student.marks && student.marks.length > 0 ? (
+                  student.marks.map((score, idx) => (
                     <tr key={idx}>
                       <td>{score.subject}</td>
-                      <td>{score.exam}</td>
+                      <td>{examNames[score.examId]}</td>
                       <td>{score.marks}</td>
                     </tr>
                   ))
